@@ -124,3 +124,54 @@ img{
     text-align:center;
     box-shadow: 2px 2px 3px #999;  
 }
+
+/* === Couleurs et textes === */
+.blue-bold {
+  color: #004085;
+  font-weight: bold;
+}
+
+.navbar a {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* === Cartes === */
+.card {
+  border-radius: 20px;
+  border: 2px solid #d1d1d1;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+  border-radius: 10px;
+}
+
+/* === Section Contact === */
+.contact-section h5 {
+  margin: 6px 0 4px 0;  /* Réduction espaces haut/bas */
+  font-weight: bold;
+  color: #004085;
+}
+
+.contact-section p {
+  margin-bottom: 6px;  /* Réduction espace entre paragraphes */
+  line-height: 1.2;
+  color: #0056b3;
+}
+
+.contact-section a {
+  margin-top: 0;
+  display: inline-block;
+  line-height: 1.2;
+  color: #0056b3;
+}
+
+.contact-section a:hover {
+  text-decoration: underline;
+}
+
+.contact-section .col-md-8 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
