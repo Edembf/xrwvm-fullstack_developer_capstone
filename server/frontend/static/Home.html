@@ -7,27 +7,44 @@
 <script>
 
 const logout = async (e) => {
-//Include the code for logout here.
-// Build logout URL and Make GET request to logout endpoint
-let logout_url = window.location.origin+"/djangoapp/logout";
-  const res = await fetch(logout_url, {
-    method: "GET",
-  });
+  e?.preventDefault(); // Prevent default button or form behavior
 
-  const json = await res.json();
-  if (json) {
-    // Clear session storage and reload page
-    let username = sessionStorage.getItem('username');
-    sessionStorage.removeItem('username');
-    window.location.href = window.location.origin;
-    window.location.reload();
-     // Notify user of logout
-    alert("Logging out "+username+"...") 
-  }
-  else {
-    alert("The user could not be logged out.")
+  try {
+    // 1️⃣ Build the logout URL (with trailing slash for Django)
+    const logoutUrl = `${window.location.origin}/djangoapp/logout/`;
+
+    // 2️⃣ Send GET request to the backend
+    const response = await fetch(logoutUrl, {
+      method: "GET",
+      credentials: "include", // include session cookies
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    // 3️⃣ Check the server response
+    if (response.ok) {
+      // Try to parse JSON (optional, in case backend returns JSON)
+      const data = await response.json().catch(() => ({}));
+
+      // 4️⃣ Clear session data in the browser
+      const username = sessionStorage.getItem("username");
+      sessionStorage.removeItem("username");
+
+      // 5️⃣ Notify user
+      alert(`Logging out${username ? " " + username : ""}...`);
+
+      // 6️⃣ Redirect to homepage (without adding to browser history)
+      window.location.replace(window.location.origin);
+    } else {
+      alert("Logout failed. Please try again later.");
+    }
+  } catch (error) {
+    console.error("Logout error:", error);
+    alert("Network error. Unable to log out.");
   }
 };
+
 
 let checkSession = ()=>{
   let curr_user = sessionStorage.getItem("username");

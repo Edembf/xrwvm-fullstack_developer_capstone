@@ -152,6 +152,7 @@ img{
   margin: 6px 0 4px 0;  /* Réduction espaces haut/bas */
   font-weight: bold;
   color: #004085;
+  text-align : center;
 }
 
 .contact-section p {

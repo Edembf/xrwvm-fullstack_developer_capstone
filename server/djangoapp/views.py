@@ -45,7 +45,7 @@ def login_user(request):
 
 # Create a `logout_request` view to handle sign out request
 
-csrf_exempt
+@csrf_exempt
 def logout_request(request):
     logout(request)  # Terminate user session
     data = {"userName": ""}  # Return empty username
@@ -54,7 +54,7 @@ def logout_request(request):
 
 # Create a `registration` view to handle sign up request
 @csrf_exempt
-def registration(request):
+def registration_request(request):
     context = {}
 
     if request.method == "POST":

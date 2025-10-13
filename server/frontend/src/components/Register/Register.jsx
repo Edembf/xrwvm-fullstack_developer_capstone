@@ -19,7 +19,7 @@ const Register = () => {
   const register = async (e) => {
     e.preventDefault();
 
-    const register_url = window.location.origin + "/djangoapp/registration";
+    const register_url = window.location.origin + "/djangoapp/register";
 
     try {
       const res = await fetch(register_url, {
