@@ -147,32 +147,36 @@ img{
   border-radius: 10px;
 }
 
-/* === Section Contact === */
-.contact-section h5 {
-  margin: 6px 0 4px 0;  /* Réduction espaces haut/bas */
-  font-weight: bold;
-  color: #004085;
-  text-align : center;
-}
-
-.contact-section p {
-  margin-bottom: 6px;  /* Réduction espace entre paragraphes */
-  line-height: 1.2;
-  color: #0056b3;
-}
-
-.contact-section a {
-  margin-top: 0;
-  display: inline-block;
-  line-height: 1.2;
-  color: #0056b3;
-}
-
-.contact-section a:hover {
-  text-decoration: underline;
-}
-
-.contact-section .col-md-8 {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
+.contact-section {
+    text-align: center; /* texte justifié pour tout le contenu */
+  }
+  
+  .contact-section h5 {
+    margin: 6px 0 4px 0;
+    font-weight: bold;
+    color: #004085;
+  }
+  
+  .contact-section p {
+    margin-bottom: 6px;
+    line-height: 1.2;
+    color: #0056b3;
+  }
+  
+  .contact-section a {
+    margin-top: 0;
+    display: inline-block;
+    line-height: 1.2;
+    color: #0056b3;
+    text-decoration: none;
+  }
+  
+  .contact-section a:hover {
+    text-decoration: underline;
+  }
+  
+  .contact-section .col-md-8 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  
