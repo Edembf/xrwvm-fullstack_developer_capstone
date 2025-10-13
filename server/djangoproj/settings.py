@@ -29,13 +29,12 @@ SECRET_KEY =\
 DEBUG = True
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://damusbaruch-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai',
+    'https://damusbaruch-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai',
 ]
 ALLOWED_HOSTS = [
     'localhost',
-    'damusbaruch-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai',
+    'damusbaruch-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai',
 ]
-
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
