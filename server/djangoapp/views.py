@@ -14,7 +14,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.conf import settings
 from .restapis import get_request, analyze_review_sentiments, post_review
-
 # ----- Imports locaux (ton application) -----
 from .populate import initiate
 from .models import CarMake, CarModel
