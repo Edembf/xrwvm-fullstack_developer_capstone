@@ -18,7 +18,6 @@ from .restapis import get_request, analyze_review_sentiments, post_review
 # ----- Imports locaux (ton application) -----
 from .populate import initiate
 from .models import CarMake, CarModel
-initiate()
 
 # ----- Configuration du logger -----
 logger = logging.getLogger(__name__)

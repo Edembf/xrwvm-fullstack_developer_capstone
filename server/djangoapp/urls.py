@@ -14,7 +14,7 @@ urlpatterns = [
     path(route='logout', view=views.logout_request, name='logout'),
 
     # path for get cars
-    path('get_cars/', views.get_cars, name='getcars'),  # Add trailing slash
+    path(route='get_cars/', view=views.get_cars, name ='getcars'),
 
     # path for dealer reviews view
     path(route='dealer/<int:dealer_id>', view=views.get_dealer_details, name='dealer_details'),
