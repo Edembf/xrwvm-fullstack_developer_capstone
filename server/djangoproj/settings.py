@@ -1,3 +1,4 @@
+
 """
 Django settings for djangoproj project.
 
@@ -12,7 +13,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,7 +33,7 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 ALLOWED_HOSTS = [
     'localhost',
-    'damusbaruch-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/',
+    'damusbaruch-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai',
 ]
 
 REST_FRAMEWORK = {
@@ -91,10 +91,10 @@ WSGI_APPLICATION = 'djangoproj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',  
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
