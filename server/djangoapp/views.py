@@ -153,16 +153,14 @@ def get_dealer_reviews(request, dealer_id):
 # Create a `get_dealer_details` view to render the dealer details
 # def get_dealer_details(request, dealer_id):
 @csrf_exempt
+
 def get_dealer_details(request, dealer_id):
-    if(dealer_id):
-        endpoint = "/fetchDealer/"+int(dealer_id)
+    if dealer_id:
+        endpoint = f"/fetchDealer/{dealer_id}"
         dealership = get_request(endpoint)
-        return JsonResponse({"status":200,"dealer":dealership})
-
+        return JsonResponse({"status": 200, "dealer": dealership})
     else:
-        return JsonResponse({"status":400,"message":"Bad Request"})
-
-# Create a `add_review` view to submit a review
+        return JsonResponse({"status": 400, "message": "Bad Request"})
 # def add_review(request):
 @csrf_exempt
 def add_review(request):
