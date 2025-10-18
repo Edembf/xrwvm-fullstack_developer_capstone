@@ -11,7 +11,7 @@ const port = 3050;
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 
-const carsData = JSON.parse(fs.readFileSync('car_records.json', 'utf8'));
+const carsData = JSON.parse(fs.readFileSync('./data/car_records.json', 'utf8'));
 
 mongoose.connect('mongodb://mongo_db:27017/', { dbName: 'dealershipsDB' })
   .then(() => console.log('MongoDB connected'))
