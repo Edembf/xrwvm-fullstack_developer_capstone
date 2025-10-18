@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // ✅ Ajouté pour corriger l'erreur
 import "./Dealers.css";
 import "../assets/style.css";
-import Header from '../Header/Header';
+import Header from "../Header/Header";
 import review_icon from "../assets/reviewicon.png";
 
 const Dealers = () => {
   const [dealersList, setDealersList] = useState([]);
   const [states, setStates] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [originalDealers, setOriginalDealers] = useState([]);
 
   let dealer_url = "/djangoapp/get_dealers";
 
   const filterDealers = async (state) => {
-    const res = await fetch(`/djangoapp/get_dealers/${state}`, { method: "GET" });
+    const res = await fetch(`/djangoapp/get_dealers/${state}`, {
+      method: "GET",
+    });
     const retobj = await res.json();
     if (retobj.status === 200) {
       setDealersList(retobj.dealers);
@@ -28,7 +31,7 @@ const Dealers = () => {
       setOriginalDealers(all_dealers);
       setDealersList(all_dealers);
 
-      const uniqueStates = Array.from(new Set(all_dealers.map(d => d.state)));
+      const uniqueStates = Array.from(new Set(all_dealers.map((d) => d.state)));
       setStates(uniqueStates);
     }
   };
@@ -41,7 +44,7 @@ const Dealers = () => {
     const query = event.target.value;
     setSearchQuery(query);
 
-    const filtered = originalDealers.filter(dealer =>
+    const filtered = originalDealers.filter((dealer) =>
       dealer.state.toLowerCase().includes(query.toLowerCase())
     );
     setDealersList(filtered);
@@ -58,7 +61,7 @@ const Dealers = () => {
   return (
     <div>
       <Header />
-      <table className='table'>
+      <table className="table">
         <thead>
           <tr>
             <th>ID</th>
@@ -67,7 +70,6 @@ const Dealers = () => {
             <th>Address</th>
             <th>Zip</th>
             <th>
-              {/* Remplacement du input + options invalides */}
               <input
                 type="text"
                 placeholder="Search states..."
@@ -75,7 +77,7 @@ const Dealers = () => {
                 onBlur={handleLostFocus}
                 value={searchQuery}
               />
-             { /*
+              {/*
               <select onChange={(e) => filterDealers(e.target.value)}>
                 <option value="">Filter by state</option>
                 <option value="All">All States</option>
@@ -92,16 +94,22 @@ const Dealers = () => {
           {dealersList.map((dealer, index) => (
             <tr key={index}>
               <td>{dealer.id}</td>
-              <td><a href={`/dealer/${dealer.id}`}>{dealer.full_name}</a></td>
+              <td>
+                <Link to={`/dealer/${dealer.id}`}>{dealer.full_name}</Link>
+              </td>
               <td>{dealer.city}</td>
               <td>{dealer.address}</td>
               <td>{dealer.zip}</td>
               <td>{dealer.state}</td>
               {isLoggedIn && (
                 <td>
-                  <a href={`/postreview/${dealer.id}`}>
-                    <img src={review_icon} className="review_icon" alt="Post Review" />
-                  </a>
+                  <Link to={`/postreview/${dealer.id}`}>
+                    <img
+                      src={review_icon}
+                      className="review_icon"
+                      alt="Post Review"
+                    />
+                  </Link>
                 </td>
               )}
             </tr>
@@ -110,6 +118,6 @@ const Dealers = () => {
       </table>
     </div>
   );
-}
+};
 
 export default Dealers;
